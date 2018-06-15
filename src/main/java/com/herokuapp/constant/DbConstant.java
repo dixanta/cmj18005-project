@@ -10,10 +10,6 @@ package com.herokuapp.constant;
  * @author USER
  */
 public class DbConstant {
-    /*public static final String DB_DRIVER="com.mysql.jdbc.Driver";
-    public static final String DB_URL="jdbc:mysql://localhost/cmj18005_project";
-    public static final String DB_USER="root";
-    public static final String DB_PASSWORD="admin";*/
     
     public static final String DB_DRIVER="org.postgresql.Driver";
     public static final String DB_URL="jdbc:postgresql://ec2-54-243-235-153.compute-1.amazonaws.com/dfuvi9rnjh6ft0?sslmode=require";

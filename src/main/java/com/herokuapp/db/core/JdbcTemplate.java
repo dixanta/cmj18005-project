@@ -60,10 +60,10 @@ public class JdbcTemplate<T> {
     }
     public int update(String sql,Object... params)throws ClassNotFoundException,
             SQLException{
-       Class.forName("com.mysql.cj.jdbc.Driver");
+       Class.forName(DbConstant.DB_DRIVER);
         Connection conn = DriverManager
-                .getConnection("jdbc:mysql://localhost/cmj18005_project",
-                        "root", "admin");
+                .getConnection(DbConstant.DB_URL,
+                        DbConstant.DB_USER, DbConstant.DB_PASSWORD);
         
         PreparedStatement stmt = conn.prepareStatement(sql);
         setParameters(stmt, params);
