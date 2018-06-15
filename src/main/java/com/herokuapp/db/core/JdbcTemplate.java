@@ -25,7 +25,7 @@ public class JdbcTemplate<T> {
         Class.forName(DbConstant.DB_DRIVER);
         Connection conn = DriverManager
                 .getConnection(DbConstant.DB_URL,
-                        DbConstant.DB_USER, DbConstant.DB_Password);
+                        DbConstant.DB_USER, DbConstant.DB_PASSWORD);
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -37,10 +37,10 @@ public class JdbcTemplate<T> {
     
     public T queryForObject(String sql,Object[] params,RowMapper<T> mapper)throws ClassNotFoundException,SQLException{
         T row=null;
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName(DbConstant.DB_DRIVER);
         Connection conn = DriverManager
-                .getConnection("jdbc:mysql://localhost/cmj18005_project",
-                        "root", "admin");
+                .getConnection(DbConstant.DB_URL,
+                        DbConstant.DB_USER, DbConstant.DB_PASSWORD);
         PreparedStatement stmt = conn.prepareStatement(sql);
         setParameters(stmt, params);
         ResultSet rs = stmt.executeQuery();
